@@ -1,6 +1,8 @@
 from Instagram import Instagram
 
 
-user = Instagram(url="https://www.instagram.com/coding_dev_/")
+user = Instagram(profile_name="daily.it.is.time.to.get.up")
 user.sign_in()
-user.follow_the_followers_users()
+user.find_followers()   
+user.follow()
+
