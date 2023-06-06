@@ -2,13 +2,8 @@ import os
 from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
-import humanfriendly
 import time
 from parse_numbers import parse_number_with_k_suffix
-from selenium.common.exceptions import NoSuchElementException
 
 class Instagram():
     def __init__(self, profile_name="coding_dev_"):
@@ -26,9 +21,6 @@ class Instagram():
 
     def sign_in(self):
         time.sleep(5.2)
-        # log_in = self.driver.find_elements(By.CLASS_NAME, '_aj1-')
-        # log_in[84].click()
-        # time.sleep(2.1)
         
         fill_username = self.driver.find_element(By.NAME, "username")
         fill_username.send_keys(self.username)
@@ -54,8 +46,6 @@ class Instagram():
         print(followers_number[1].text)
         followers_number = parse_number_with_k_suffix(followers_number[1].text)
                                                       
-        # counter = 0
-        # progress_bar = self.driver.find_element(By.CLASS_NAME, "x78zum5")
         while True:
             try:
                 
@@ -64,7 +54,6 @@ class Instagram():
                 pop_up_window)
                 loading_still = self.driver.find_element(By.CSS_SELECTOR, '.x78zum5.xl56j7k.xdt5ytf')
                 print(loading_still)
-                # time.sleep(0.5)
             except: 
                 break
 
